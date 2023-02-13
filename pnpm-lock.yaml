@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.4.3
   '@rocketseat/eslint-config': ^1.2.0
   '@types/node': ^18.13.0
+  dotenv: ^16.0.3
   eslint: ^8.34.0
   fastify: ^4.13.0
   husky: ^8.0.0
@@ -15,6 +16,7 @@ specifiers:
   typescript: ^4.9.5
 
 dependencies:
+  dotenv: 16.0.3
   fastify: 4.13.0
   knex: 2.4.2_pg@8.9.0
   pg: 8.9.0
@@ -1316,6 +1318,11 @@ packages:
     dependencies:
       is-obj: 2.0.0
     dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /eastasianwidth/0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}

@@ -1,6 +1,6 @@
-import { knex as setupKnex } from 'knex'
+import { knex as setupKnex, Knex } from 'knex'
 
-export const knex = setupKnex({
+export const config = {
   client: 'pg',
   connection: {
     port: 5432,
@@ -9,4 +9,10 @@ export const knex = setupKnex({
     password: 'docker',
     database: 'ignite-api-rest-nodejs',
   },
-})
+  migrations: {
+    extension: 'ts',
+    directory: './db/migrations',
+  },
+} satisfies Knex.Config
+
+export const knex = setupKnex(config)

@@ -1,0 +1,11 @@
+{
+  "name": "ignite-api-rest-nodejs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Luiz Gonçalves<luizhbgoncalves@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

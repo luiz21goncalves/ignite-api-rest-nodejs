@@ -4,9 +4,9 @@ import { knex } from './database'
 const app = fastify()
 
 app.get('/', async () => {
-  const test = await knex('pg_catalog.pg_tables').select('*')
+  const transaction = await knex('transactions').select('*')
 
-  return test
+  return transaction
 })
 
 app

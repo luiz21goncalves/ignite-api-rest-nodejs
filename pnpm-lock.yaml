@@ -5,6 +5,7 @@ specifiers:
   '@types/node': ^18.13.0
   eslint: ^8.34.0
   fastify: ^4.13.0
+  husky: ^8.0.0
   tsx: ^3.12.3
   typescript: ^4.9.5
 
@@ -15,6 +16,7 @@ devDependencies:
   '@rocketseat/eslint-config': 1.2.0_7kw3g6rralp5ps6mg3uyzz6azm
   '@types/node': 18.13.0
   eslint: 8.34.0
+  husky: 8.0.3
   tsx: 3.12.3
   typescript: 4.9.5
 
@@ -1585,6 +1587,12 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: true
+
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /ieee754/1.2.1:

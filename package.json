@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Luiz Gonçalves<luizhbgoncalves@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">= 18.14.0"
+  },
   "scripts": {
     "test": "vitest run",
     "dev": "tsx watch src/server.ts",

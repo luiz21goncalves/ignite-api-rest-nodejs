@@ -119,4 +119,16 @@ describe('Transactions routes', () => {
       summary: { amount: '1000.00' },
     })
   })
+
+  it('should not be able to list all transactions without a session cookie', async () => {
+    const listTransactionsResponse = await request(app.server).get(
+      '/transactions',
+    )
+
+    expect(listTransactionsResponse.statusCode).toEqual(401)
+    expect(listTransactionsResponse.body).toStrictEqual({
+      statusCode: 401,
+      error: 'Unauthorized',
+    })
+  })
 })

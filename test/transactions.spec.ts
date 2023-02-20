@@ -27,6 +27,7 @@ describe('Transactions routes', () => {
     })
 
     expect(response.statusCode).toEqual(201)
+    expect(response.body).toStrictEqual({})
   })
 
   it('should be able to list all transactions', async () => {
@@ -40,18 +41,48 @@ describe('Transactions routes', () => {
 
     const cookies = createTransactionResponse.get('Set-Cookie')
 
-    const response = await request(app.server)
+    const listTransactionsResponse = await request(app.server)
       .get('/transactions')
       .set('Cookie', cookies)
 
-    expect(response.statusCode).toEqual(200)
-    expect(response.body).toStrictEqual({
+    expect(listTransactionsResponse.statusCode).toEqual(200)
+    expect(listTransactionsResponse.body).toStrictEqual({
       transactions: expect.arrayContaining([
         expect.objectContaining({
           title: 'New transaction',
           amount: '2500.00',
         }),
       ]),
+    })
+  })
+
+  it('should be able to get a specific transaction', async () => {
+    const createTransactionResponse = await request(app.server)
+      .post('/transactions')
+      .send({
+        title: 'New transaction',
+        amount: 500,
+        type: 'debit',
+      })
+
+    const cookies = createTransactionResponse.get('Set-Cookie')
+
+    const listTransactionsResponse = await request(app.server)
+      .get('/transactions')
+      .set('Cookie', cookies)
+
+    const transactionId = listTransactionsResponse.body.transactions[0].id
+
+    const getTransactionsResponse = await request(app.server)
+      .get(`/transactions/${transactionId}`)
+      .set('Cookie', cookies)
+
+    expect(getTransactionsResponse.statusCode).toEqual(200)
+    expect(getTransactionsResponse.body).toStrictEqual({
+      transaction: expect.objectContaining({
+        title: 'New transaction',
+        amount: '-500.00',
+      }),
     })
   })
 })

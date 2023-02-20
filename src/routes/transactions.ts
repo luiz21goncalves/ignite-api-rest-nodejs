@@ -27,11 +27,11 @@ export async function transactionsRoutes(app: FastifyInstance) {
 
     const { id } = getTransactionsParamsSchema.parse(request.params)
 
-    const transactions = await knex('transactions')
+    const transaction = await knex('transactions')
       .where({ id, session_id: sessionId })
       .first()
 
-    return { transactions }
+    return { transaction }
   })
 
   app.post('/', async (request, replay) => {
